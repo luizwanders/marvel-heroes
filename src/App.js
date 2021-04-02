@@ -1,17 +1,10 @@
 import './App.css'
+import Header from '@/components/shared/Header'
 
-import Api from '@/services/api'
-
-async function App() {
-    const result = await Api.getCharacters()
-
-    console.log(result)
-
+function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <p>wanderson</p>
-            </header>
+            <Header />
         </div>
     )
 }

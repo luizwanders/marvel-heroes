@@ -20,7 +20,7 @@ export default async function Request(resource, data = null) {
 
     let url = ''
 
-    if (resource.StartsWith('http://')) {
+    if (resource.startsWith('http://')) {
         url = `${resource}?${params}`
     } else {
         url = `${baseUrl}/${resource}?${params}`
@@ -29,7 +29,8 @@ export default async function Request(resource, data = null) {
     const response = await fetch(url)
 
     if (response.status >= 200 && response.status <= 299) {
-        return await response.json()
+        const result = await response.json()
+        return result
     } else {
         console.log(response.status, response.statusText)
         throw new Error(response.statusText)
