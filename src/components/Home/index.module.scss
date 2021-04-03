@@ -1,0 +1,39 @@
+.searcContainer {
+    padding-top: 43px;
+
+    h1 {
+        font: normal normal bold 32px/30px "PT Sans Caption";
+        color: #555555;
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        font: normal normal bold 16px/24px PT Sans Caption;
+        color: #555555;
+        margin-bottom: 8px;
+    }
+
+    .inputContainer {
+        display: flex;
+        justify-content: space-between;
+        max-width: calc(295px - 32px);
+        height: calc(32px - 8px);
+        padding: 4px 16px;
+        background: #fff;
+        border-radius: 4px;
+        margin-bottom: 63px;
+
+        input,
+        input:focus {
+            border: none;
+            flex-grow: 1;
+            outline: none;
+            padding-right: 10px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
