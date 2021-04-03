@@ -1,6 +1,8 @@
 import style from './index.module.scss'
 import PropTypes from 'prop-types'
 
+import { Link } from 'react-router-dom'
+
 export default function Grid({ data }) {
     const renderSeries = (items) => {
         if (!items.length) {
@@ -35,22 +37,24 @@ export default function Grid({ data }) {
             </div>
 
             {data.map((item, index) => (
-                <div key={index} className={style.row}>
-                    <div className={style.cell}>
-                        <img
-                            src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-                            alt={'personagem'}
-                            width="70"
-                        />
-                        <span className={style.characterName}>{item.name}</span>
+                <Link key={index} to={`/character/${item.id}`}>
+                    <div className={style.row}>
+                        <div className={style.cell}>
+                            <img
+                                src={`${item.thumbnail.path}/standard_medium.${item.thumbnail.extension}`}
+                                alt={'personagem'}
+                                width="70"
+                            />
+                            <span className={style.characterName}>{item.name}</span>
+                        </div>
+                        <div className={style.cell}>
+                            <div>{renderSeries(item.series.items)}</div>
+                        </div>
+                        <div className={style.cell}>
+                            <div>{renderEvents(item.events.items)}</div>
+                        </div>
                     </div>
-                    <div className={style.cell}>
-                        <div>{renderSeries(item.series.items)}</div>
-                    </div>
-                    <div className={style.cell}>
-                        <div>{renderEvents(item.events.items)}</div>
-                    </div>
-                </div>
+                </Link>
             ))}
         </div>
     )

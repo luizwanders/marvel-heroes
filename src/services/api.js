@@ -16,4 +16,12 @@ export const Api = {
             console.log(error)
         }
     },
+
+    getCharacterInfo: async function (id) {
+        try {
+            return await Request('characters/' + id)
+        } catch (error) {
+            console.log(error)
+        }
+    },
 }

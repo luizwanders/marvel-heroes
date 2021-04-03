@@ -1,11 +1,15 @@
 import style from './index.module.scss'
 import logo from '@/assets/logo.jpg'
 
+import { Link } from 'react-router-dom'
+
 export default function Header() {
     return (
         <div className={style.header}>
             <div className={style.logoContainer}>
-                <img src={logo} alt="Objective" />
+                <Link to="/">
+                    <img src={logo} alt="Objective" />
+                </Link>
             </div>
 
             <div className={style.credits}>

@@ -1,7 +1,8 @@
 import './App.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from '@/components/shared/Header'
 import Home from '@/pages/Home'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Character from '@/pages/Character'
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
                 <main style={{ padding: '0 24px' }}>
                     <Switch>
                         <Route path="/" exact component={Home} />
+                        <Route path="/character/:id" exact component={Character} />
                     </Switch>
                 </main>
             </div>

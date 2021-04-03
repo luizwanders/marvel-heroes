@@ -31,9 +31,10 @@
             padding-right: 10px;
         }
 
-        div {
+        .searchButton {
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
     }
 }
