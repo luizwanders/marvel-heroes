@@ -1,0 +1,38 @@
+.HeroCard {
+    display: block;
+    border: 1px solid #000;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 300px;
+
+    .cover {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100% !important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: -200px;
+        background: #fff;
+
+        img {
+            width: 100%;
+            transition: all 900ms;
+            filter: blur(0.5px) brightness(95%);
+        }
+
+        img:hover {
+            transform: scale(1.5);
+            filter: blur(0) brightness(120%);
+        }
+    }
+}

@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
+import useDeviceDetect from '@/utils/useDeviceDetect'
+
 export default function Grid({ data }) {
+    const { isMobile } = useDeviceDetect()
+
     const renderSeries = (items) => {
         if (!items.length) {
             return <p>Nenhuma série</p>
@@ -32,8 +36,12 @@ export default function Grid({ data }) {
         <div>
             <div className={style.header}>
                 <div className={style.headerCell}>Personagem</div>
-                <div className={style.headerCell}>Série</div>
-                <div className={style.headerCell}>Eventos</div>
+                <div style={{ display: isMobile ? 'none' : '' }} className={style.headerCell}>
+                    Série
+                </div>
+                <div style={{ display: isMobile ? 'none' : '' }} className={style.headerCell}>
+                    Eventos
+                </div>
             </div>
 
             {data.map((item, index) => (
@@ -47,10 +55,10 @@ export default function Grid({ data }) {
                             />
                             <span className={style.characterName}>{item.name}</span>
                         </div>
-                        <div className={style.cell}>
+                        <div style={{ display: isMobile ? 'none' : '' }} className={style.cell}>
                             <div>{renderSeries(item.series.items)}</div>
                         </div>
-                        <div className={style.cell}>
+                        <div style={{ display: isMobile ? 'none' : '' }} className={style.cell}>
                             <div>{renderEvents(item.events.items)}</div>
                         </div>
                     </div>

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import { Api } from '@/services/api'
 
+import HeroCard from '@/components/HeroCard'
+
 export default function Character() {
     const { id } = useParams()
 
@@ -19,13 +21,7 @@ export default function Character() {
 
     return (
         <div className="container">
-            <h1>{data.name}</h1>
-            <img
-                width="400"
-                src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-                alt={data.name}
-            />
-            <p>{data.description}</p>
+            <HeroCard data={data} />
         </div>
     )
 }
