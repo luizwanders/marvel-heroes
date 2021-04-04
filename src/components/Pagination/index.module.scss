@@ -1,0 +1,38 @@
+.pagination {
+    display: block;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 30px 10px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    li {
+        margin: 0 5px;
+
+        button {
+            border: 1px solid #999;
+            padding: 5px 10px;
+            background-color: #fff;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+
+    button.paginationActive {
+        background: blue !important;
+        color: #fff;
+    }
+}

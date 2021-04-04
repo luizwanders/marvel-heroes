@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-
 import { Api } from '@/services/api'
-
 import HeroCard from '@/components/HeroCard'
 
 export default function Character() {

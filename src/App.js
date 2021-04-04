@@ -9,12 +9,11 @@ function App() {
         <Router>
             <div>
                 <Header />
-                <main style={{ padding: '0 24px' }}>
-                    <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/character/:id" exact component={Character} />
-                    </Switch>
-                </main>
+
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/character/:id" exact component={Character} />
+                </Switch>
             </div>
         </Router>
     )
