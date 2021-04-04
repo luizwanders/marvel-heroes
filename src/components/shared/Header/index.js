@@ -14,7 +14,8 @@ export default function Header() {
 
             <div className={style.credits}>
                 <div className={style.name}>
-                    Wanderson Silva <span>Teste de Front-end</span>
+                    <span className={style.dev}>Wanderson Silva</span>
+                    <span className={style.test}>Teste de Front-end</span>
                 </div>
                 <div className={style.assign}>CB</div>
             </div>

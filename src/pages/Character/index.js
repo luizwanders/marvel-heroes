@@ -9,10 +9,14 @@ export default function Character() {
     const { id } = useParams()
 
     const [data, setData] = useState([])
+    const [comics, setComics] = useState([])
 
     useEffect(async () => {
         const result = await Api.getCharacterInfo(id)
+        const comicsResult = await Api.getCharacterComics(id)
+
         setData(result.data.results[0])
+        setComics(comicsResult.data.results)
     }, [])
 
     if (data.length === 0) {
@@ -21,7 +25,7 @@ export default function Character() {
 
     return (
         <div className="container">
-            <HeroCard data={data} />
+            <HeroCard data={data} comics={comics} />
         </div>
     )
 }

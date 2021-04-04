@@ -24,4 +24,12 @@ export const Api = {
             console.log(error)
         }
     },
+
+    getCharacterComics: async function (id) {
+        try {
+            return await Request(`characters/${id}/comics`)
+        } catch (error) {
+            console.log(error)
+        }
+    },
 }

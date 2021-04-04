@@ -1,3 +1,5 @@
+$breakpoint-tablet: 768px;
+
 .header {
     background: #fff;
     padding: 16px 24px;
@@ -16,9 +18,12 @@
 }
 
 .credits {
-    font: normal normal bold 14px/20px "PT Sans Caption";
-    color: #555555;
     display: flex;
+
+    span.dev {
+        font: normal normal bold 14px/20px "PT Sans Caption";
+        color: #555555;
+    }
 
     span {
         font-family: "PT Sans Caption";
@@ -48,6 +53,22 @@
         &:hover {
             background-color: #555555;
             color: #fff;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    div.name {
+        flex-direction: column;
+        justify-content: right;
+
+        span {
+            text-align: right !important;
+            width: 100%;
+        }
+
+        span.test {
+            font-size: 12px;
         }
     }
 }
