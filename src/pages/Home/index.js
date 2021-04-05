@@ -65,6 +65,10 @@ export default function Home() {
         }
     }, [])
 
+    if (!data) {
+        return <Loader />
+    }
+
     return (
         <>
             <main style={{ padding: '0 24px' }}>
