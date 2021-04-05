@@ -15,7 +15,6 @@ export default function HeroCard({ data, comics }) {
         slidesToShow: 5,
         slidesToScroll: 5,
         autoplay: true,
-        className: 'slide',
         responsive: [
             {
                 breakpoint: 1024,
