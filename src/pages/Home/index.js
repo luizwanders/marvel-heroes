@@ -65,7 +65,7 @@ export default function Home() {
         }
     }, [])
 
-    if (data.length === 0) {
+    if (!data) {
         return <Loader />
     }
 

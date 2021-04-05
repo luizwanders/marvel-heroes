@@ -32,6 +32,14 @@ export default function Grid({ data }) {
         return items.map((serie, i) => <p key={i}>{serie.name}</p>)
     }
 
+    if (!data.length) {
+        return (
+            <p>
+                <strong>Ops!</strong> não encontramos esse personagem :(
+            </p>
+        )
+    }
+
     return (
         <div>
             <div className={style.header}>
