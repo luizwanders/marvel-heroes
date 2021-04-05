@@ -9,7 +9,7 @@ App to fetch characters from Marvel API.
 
 ## Building and running on localhost
 
-### Fist of all
+### First of all
 Rename the .env.exemple file to .env and put your public and private API key
 
 
