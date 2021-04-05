@@ -29,6 +29,19 @@
             flex-grow: 1;
             outline: none;
             padding-right: 10px;
+
+            &::-webkit-input-placeholder {
+                font-style: italic;
+            }
+            &:-moz-placeholder {
+                font-style: italic;
+            }
+            &::-moz-placeholder {
+                font-style: italic;
+            }
+            &:-ms-input-placeholder {
+                font-style: italic;
+            }
         }
 
         .searchButton {

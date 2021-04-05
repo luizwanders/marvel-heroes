@@ -22,17 +22,73 @@
     li {
         margin: 0 5px;
 
-        button {
+        button.page {
             border: 1px solid #999;
-            padding: 5px 10px;
             background-color: #fff;
-            outline: none;
             cursor: pointer;
+            height: 32px;
+            padding: 0 15px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            color: #8e8e8e;
+            border-radius: 4px;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: #5dafff;
+                border: 1px solid #fff;
+                color: #fff;
+                outline: none;
+            }
         }
     }
 
     button.paginationActive {
-        background: blue !important;
+        background: #167abc !important;
+        border: 1px solid #fff;
         color: #fff;
+        height: 32px;
+        padding: 0 15px;
+        background: #fff;
+        border-radius: 4px;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border: 1px solid #fff;
+            color: #fff;
+            outline: none;
+        }
+    }
+
+    .next,
+    .prev,
+    .first,
+    .last {
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5px;
+        cursor: pointer;
+        background: none !important;
+
+        &:focus {
+            outline: none;
+        }
+
+        svg {
+            fill: #8e8e8e;
+
+            &:hover {
+                fill: #5dafff;
+            }
+        }
+    }
+
+    .first,
+    .last {
+        padding-top: 10px;
     }
 }
