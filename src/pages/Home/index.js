@@ -14,6 +14,7 @@ export default function Home() {
     const [searchText, setSearchText] = useState('')
     const [offset, setOffset] = useState(0)
     const [total, setTotal] = useState(0)
+    const [isLoading, setIsLoading] = useState(false)
 
     const changeText = (e) => {
         const text = e.target.value
@@ -33,9 +34,11 @@ export default function Home() {
             params.nameStartsWith = searchText
         }
 
+        setIsLoading(true)
         const result = await Api.getCharacters(params)
         setData(result.data.results)
         setTotal(result.data.total)
+        setIsLoading(false)
     }
 
     const changePage = async (offset) => {
@@ -47,27 +50,29 @@ export default function Home() {
             params.nameStartsWith = searchText
         }
 
+        setIsLoading(true)
+
         const result = await Api.getCharacters(params)
 
         setData(result.data.results)
         setTotal(result.data.total)
         setOffset(offset)
+        setIsLoading(false)
         window.scrollTo(0, 126)
     }
 
     useEffect(async () => {
         try {
+            setIsLoading(true)
             const result = await Api.getCharacters({ limit: LIMIT })
             setData(result.data.results)
             setTotal(result.data.total)
         } catch (error) {
             console.log(error)
+        } finally {
+            setIsLoading(false)
         }
     }, [])
-
-    if (!data) {
-        return <Loader />
-    }
 
     return (
         <>
@@ -91,7 +96,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <Grid data={data} />
+                    {isLoading ? <Loader /> : <Grid data={data} />}
                 </div>
             </main>
 
