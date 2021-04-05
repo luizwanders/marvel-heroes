@@ -5,6 +5,8 @@ import Grid from '@/components/shared/Grid'
 import { Api } from '@/services/api'
 import Pagination from '@/components/Pagination'
 
+import Loader from '@/components/Loader'
+
 const LIMIT = 10
 
 export default function Home() {
@@ -30,6 +32,7 @@ export default function Home() {
         if (searchText.trim() !== '') {
             params.nameStartsWith = searchText
         }
+
         const result = await Api.getCharacters(params)
         setData(result.data.results)
         setTotal(result.data.total)
@@ -45,6 +48,7 @@ export default function Home() {
         }
 
         const result = await Api.getCharacters(params)
+
         setData(result.data.results)
         setTotal(result.data.total)
         setOffset(offset)
@@ -60,6 +64,10 @@ export default function Home() {
             console.log(error)
         }
     }, [])
+
+    if (data.length === 0) {
+        return <Loader />
+    }
 
     return (
         <>
@@ -86,6 +94,7 @@ export default function Home() {
                     <Grid data={data} />
                 </div>
             </main>
+
             {total > LIMIT && (
                 <Pagination limit={LIMIT} total={total} offset={offset} setOffset={changePage} />
             )}

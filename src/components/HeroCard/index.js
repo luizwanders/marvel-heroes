@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types'
-
 import style from './index.module.scss'
-
 import AnimatedNumber from 'animated-number-react'
-
 import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export default function HeroCard({ data, comics }) {
     const formatNumber = (value) => value.toFixed(0)
@@ -13,9 +12,32 @@ export default function HeroCard({ data, comics }) {
         dots: true,
         infinite: comics.length > 6,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 5,
         autoplay: true,
+        className: 'slide',
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: false,
+                    centerMode: true,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    centerMode: true,
+                },
+            },
+        ],
     }
 
     return (
@@ -52,11 +74,13 @@ export default function HeroCard({ data, comics }) {
                 <Slider {...settings}>
                     {comics.map((item) => (
                         <div key={item.id}>
-                            <img
-                                src={`${item.thumbnail.path}/portrait_xlarge.${item.thumbnail.extension}`}
-                                alt={item.title}
-                                height="200"
-                            />
+                            <div className="slide">
+                                <img
+                                    src={`${item.thumbnail.path}/portrait_xlarge.${item.thumbnail.extension}`}
+                                    alt={item.title}
+                                    height="200"
+                                />
+                            </div>
                         </div>
                     ))}
                 </Slider>
@@ -64,7 +88,7 @@ export default function HeroCard({ data, comics }) {
 
             <br />
 
-            <div>
+            <div className={style.marvelCredits}>
                 <a href="http://marvel.com">Data provided by Marvel. © 2021 MARVEL</a>
             </div>
         </div>

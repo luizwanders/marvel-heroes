@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 import style from './index.module.scss'
-
-const MAX_ITEMS = 5
-const MAX_LEFT = (MAX_ITEMS - 1) / 2
+import useDeviceDetect from '@/utils/useDeviceDetect'
 
 export default function Pagination({ limit, total, offset, setOffset }) {
+    const { isMobile } = useDeviceDetect()
+
+    const MAX_ITEMS = isMobile ? 3 : 5
+    const MAX_LEFT = (MAX_ITEMS - 1) / 2
+
     const current = offset ? Math.round(offset / limit + 1) : 1
     const pages = Math.ceil(total / limit)
     const first = Math.max(current - MAX_LEFT, 1)
@@ -28,8 +31,8 @@ export default function Pagination({ limit, total, offset, setOffset }) {
         <div className={style.pagination}>
             <div className="container">
                 <ul>
-                    <li>
-                        {current > 1 && (
+                    {current > 1 && (
+                        <li>
                             <div onClick={() => onPageChange(1)} className={style.first}>
                                 <svg
                                     width="14"
@@ -40,10 +43,10 @@ export default function Pagination({ limit, total, offset, setOffset }) {
                                     <polygon points="28.284 210.04 127.99 110.34 28.284 10.639 0 38.924 71.417 110.34 0 181.76" />
                                 </svg>
                             </div>
-                        )}
-                    </li>
-                    <li>
-                        {current > 1 && (
+                        </li>
+                    )}
+                    {current > 1 && (
+                        <li>
                             <button
                                 className={style.prev}
                                 onClick={() => onPageChange(current - 1)}
@@ -56,8 +59,8 @@ export default function Pagination({ limit, total, offset, setOffset }) {
                                     <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
                                 </svg>
                             </button>
-                        )}
-                    </li>
+                        </li>
+                    )}
                     {computedPages.map((page) => (
                         <li key={page}>
                             <button
@@ -67,8 +70,8 @@ export default function Pagination({ limit, total, offset, setOffset }) {
                             </button>
                         </li>
                     ))}
-                    <li>
-                        {current < pages && (
+                    {current < pages && (
+                        <li>
                             <button
                                 className={style.next}
                                 onClick={() => onPageChange(current + 1)}
@@ -81,10 +84,10 @@ export default function Pagination({ limit, total, offset, setOffset }) {
                                     <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
                                 </svg>
                             </button>
-                        )}
-                    </li>
-                    <li>
-                        {current < pages && (
+                        </li>
+                    )}
+                    {current < pages && (
+                        <li>
                             <div onClick={() => onPageChange(pages)} className={style.last}>
                                 <svg
                                     width="14"
@@ -94,8 +97,8 @@ export default function Pagination({ limit, total, offset, setOffset }) {
                                     <polygon points="28.284 210.04 127.99 110.34 28.284 10.639 0 38.924 71.417 110.34 0 181.76" />
                                 </svg>
                             </div>
-                        )}
-                    </li>
+                        </li>
+                    )}
                 </ul>
             </div>
         </div>

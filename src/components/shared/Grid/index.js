@@ -51,14 +51,18 @@ export default function Grid({ data }) {
                             <img
                                 src={`${item.thumbnail.path}/standard_medium.${item.thumbnail.extension}`}
                                 alt={'personagem'}
-                                width="70"
+                                width="48"
                             />
                             <span className={style.characterName}>{item.name}</span>
                         </div>
-                        <div style={{ display: isMobile ? 'none' : '' }} className={style.cell}>
+                        <div
+                            style={{ display: isMobile ? 'none' : '' }}
+                            className={`${style.cell} ${style.series}`}>
                             <div>{renderSeries(item.series.items)}</div>
                         </div>
-                        <div style={{ display: isMobile ? 'none' : '' }} className={style.cell}>
+                        <div
+                            style={{ display: isMobile ? 'none' : '' }}
+                            className={`${style.cell} ${style.events}`}>
                             <div>{renderEvents(item.events.items)}</div>
                         </div>
                     </div>

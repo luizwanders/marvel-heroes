@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { Api } from '@/services/api'
 import HeroCard from '@/components/HeroCard'
 
+import Loader from '@/components/Loader'
+
 export default function Character() {
     const { id } = useParams()
 
@@ -18,7 +20,7 @@ export default function Character() {
     }, [])
 
     if (data.length === 0) {
-        return <p>falha ao obter dados</p>
+        return <Loader />
     }
 
     return (

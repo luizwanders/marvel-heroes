@@ -1,5 +1,7 @@
+$breakpoint-tablet: 768px;
+
 .searchContainer {
-    padding-top: 43px;
+    padding-top: 21px;
 
     h1 {
         font: normal normal bold 32px/30px "PT Sans Caption";
@@ -16,12 +18,12 @@
     .inputContainer {
         display: flex;
         justify-content: space-between;
-        max-width: calc(295px - 32px);
-        height: calc(32px - 8px);
+        max-width: 292px;
+        height: 30px;
         padding: 4px 16px;
         background: #fff;
         border-radius: 4px;
-        margin-bottom: 63px;
+        margin-bottom: 39px;
 
         input,
         input:focus {
@@ -48,6 +50,34 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .searchContainer {
+        padding-top: 23px;
+
+        h1 {
+            font-size: 24px !important;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 19px;
+        }
+
+        h2 {
+            text-align: center !important;
+            font-weight: bold !important;
+            font-size: 14px;
+        }
+
+        .inputContainer {
+            max-width: 100%;
+            margin-bottom: 32px;
+
+            input {
+                padding-right: 5px !important;
+            }
         }
     }
 }

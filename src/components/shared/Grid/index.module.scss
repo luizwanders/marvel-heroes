@@ -1,3 +1,5 @@
+$breakpoint-tablet: 768px;
+
 a,
 a:hover {
     text-decoration: none;
@@ -12,7 +14,7 @@ a:hover {
     border-radius: 4px;
     margin-bottom: 8px;
     background: #ffffff;
-    padding: 24px;
+    padding: 18px 21px;
     transition: all 100ms;
     border: 2px solid #ffffff;
 
@@ -45,6 +47,15 @@ a:hover {
     display: flex;
     text-align: left !important;
     align-items: center;
+
+    img {
+        border-radius: 4px;
+    }
+}
+
+.series,
+.events {
+    font-size: 13px;
 }
 
 .characterName {
@@ -53,4 +64,16 @@ a:hover {
     font-weight: bold;
     color: #555555;
     margin-left: 24px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .row {
+        padding: 7px 13px;
+        margin-bottom: 8px;
+        height: 72px;
+    }
+
+    .characterName {
+        font-size: 14px;
+    }
 }
