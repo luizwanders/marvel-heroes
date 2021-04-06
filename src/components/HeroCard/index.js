@@ -75,7 +75,7 @@ export default function HeroCard({ data, comics }) {
 
             <p className={style.description}>{data.description}</p>
 
-            <div style={{ marginBottom: '30px' }}>
+            <div style={{ marginBottom: '30px', padding: '0 15px' }}>
                 <Slider {...settings}>
                     {comics.map((item) => (
                         <div key={item.id}>
