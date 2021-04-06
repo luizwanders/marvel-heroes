@@ -82,8 +82,6 @@ body {
 
 .slick-next,
 .slick-prev {
-    width: 45px;
-    height: 45px;
     background: rgba(65, 64, 64, 0.3) !important;
     border-radius: 20px;
 }

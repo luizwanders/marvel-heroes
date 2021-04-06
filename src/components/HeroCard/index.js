@@ -43,8 +43,6 @@ export default function HeroCard({ data, comics }) {
         ],
     }
 
-    console.log(comics)
-
     return (
         <div className={style.HeroCard}>
             <div className={style.cover}>
