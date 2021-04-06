@@ -50,3 +50,44 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.slide div a {
+    background: rgb(32, 32, 32);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.slide div {
+    position: relative;
+}
+
+.slide div .price {
+    position: absolute;
+    z-index: 9999;
+    bottom: 24px;
+    font-size: 11px;
+    left: 0px;
+    background: rgb(255, 208, 0);
+    color: rgb(0, 0, 0);
+    padding: 5px 5px;
+}
+
+.slick-prev:before {
+    content: '<';
+    color: red;
+    font-size: 30px;
+}
+
+.slick-next:before {
+    content: '>';
+    color: red;
+    font-size: 30px;
+}

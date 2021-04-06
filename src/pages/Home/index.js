@@ -58,7 +58,7 @@ export default function Home() {
         setTotal(result.data.total)
         setOffset(offset)
         setIsLoading(false)
-        window.scrollTo(0, 126)
+        window.scrollTo(0, 100)
     }
 
     useEffect(async () => {

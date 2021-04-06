@@ -75,4 +75,18 @@
         color: #e5e5e5;
         font-family: "PT Sans Caption";
     }
+
+    .back {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+
+        img {
+            margin-right: 5px;
+            width: 30px;
+        }
+    }
 }

@@ -5,6 +5,10 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+import { Link } from 'react-router-dom'
+
+import backIcon from '@/assets/arrow_back.svg'
+
 export default function HeroCard({ data, comics }) {
     const formatNumber = (value) => value.toFixed(0)
 
@@ -38,6 +42,8 @@ export default function HeroCard({ data, comics }) {
             },
         ],
     }
+
+    console.log(comics)
 
     return (
         <div className={style.HeroCard}>
@@ -74,11 +80,22 @@ export default function HeroCard({ data, comics }) {
                     {comics.map((item) => (
                         <div key={item.id}>
                             <div className="slide">
-                                <img
-                                    src={`${item.thumbnail.path}/portrait_xlarge.${item.thumbnail.extension}`}
-                                    alt={item.title}
-                                    height="200"
-                                />
+                                <div title={item.title}>
+                                    <img
+                                        src={`${item.thumbnail.path}/portrait_xlarge.${item.thumbnail.extension}`}
+                                        alt={item.title}
+                                        height="200"
+                                    />
+                                    {item.urls[0] && (
+                                        <a href={item.urls[0].url} target="_blank" rel="noreferrer">
+                                            comprar
+                                        </a>
+                                    )}
+
+                                    {item.prices[1] && item.prices[0].type === 'printPrice' && (
+                                        <div className="price">$ {item.prices[1].price}</div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -90,6 +107,10 @@ export default function HeroCard({ data, comics }) {
             <div className={style.marvelCredits}>
                 <a href="http://marvel.com">Data provided by Marvel. © 2021 MARVEL</a>
             </div>
+
+            <Link title="voltar" className={style.back} to="/">
+                <img src={backIcon} alt="Voltar" />
+            </Link>
         </div>
     )
 }
